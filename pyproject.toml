@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "contract-constructor"
+version = "0.1.0"
+description = ""
+authors = ["Dmitriy N <dmitriy.d2023@gmail.com>"]
+readme = "README.md"
+packages = [{include = "contract_constructor"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.96.0"
+uvicorn = "^0.22.0"
+python-dotenv = "^1.0.0"
+mammoth = "^1.6.0"
+sqlalchemy = "^2.0.18"
+alembic = "^1.11.1"
+asyncpg = "^0.28.0"
+pyjwt = "^2.8.0"
+passlib = "^1.7.4"
+psycopg2 = "^2.9.7"
+python-multipart = "^0.0.6"
+pypandoc = "^1.11"
+pytest = "^7.4.2"
+sqladmin = "^0.15.1"
+itsdangerous = "^2.1.2"
+
+[tool.poetry.group.dev.dependencies]
+setuptools = "^67.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,16 @@
+/.idea/
+/.vscode/
+
+/.env
+/.env.*
+
+!.env.*.example
+/sandbox/
+/src/media/*
+!/src/media/.keep
+/check_list.txt
+/pandoc
+/fixtures/
+/docs/error_structure.json
+/src/database_utils.py
+/docs/img/preview-s.jpg

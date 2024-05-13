@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  contract-constructor-database:
+    container_name: contract-constructor-database
+    image: postgres:14.1-alpine
+    restart: always
+    env_file:
+      - .env.docker
+    ports:
+      - '127.0.0.1:5452:5432'
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    networks:
+      - constructor-network
+
+  contract-constructor:
+    container_name: contract-constructor
+    build: .
+    command:  uvicorn main:app --host 0.0.0.0 --port 8000 --forwarded-allow-ips='*' --proxy-headers
+    depends_on:
+      - contract-constructor-database
+    restart: always
+    ports:
+      - '127.0.0.1:7998:8000'
+    volumes:
+      - ./media:/contract_constructor/src/media
+    env_file:
+      - .env.docker
+    networks:
+      - constructor-network
+
+networks:
+  constructor-network:
+    driver: bridge
